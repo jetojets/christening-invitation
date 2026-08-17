@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 const openingScreen = document.getElementById("opening-screen");
 const openInvitation = document.getElementById("openInvitation");
 
-const music = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-
 const navbar = document.getElementById("navbar");
 
 
@@ -41,66 +38,9 @@ if(openInvitation){
 }
         }
 
-
-        if(music){
-
-            music.volume = 0.5;
-
-            music.play();
-
-            if(musicBtn){
-
-                musicBtn.innerHTML="⏸";
-
-            }
-
-        }
-
-
     });
 
 }
-
-
-
-// MUSIC BUTTON
-
-let playing = true;
-
-
-if(musicBtn){
-
-    musicBtn.addEventListener("click",()=>{
-
-
-        if(!music) return;
-
-
-        if(playing){
-
-            music.pause();
-
-            musicBtn.innerHTML="🎵";
-
-            playing=false;
-
-        }
-        else{
-
-            music.play();
-
-            musicBtn.innerHTML="⏸";
-
-            playing=true;
-
-        }
-
-
-    });
-
-}
-
-
 
 });
 

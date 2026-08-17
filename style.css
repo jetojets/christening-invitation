@@ -905,48 +905,27 @@ font-weight:600;
 
 }
 
-
 .navbar.hide{
 
     transform:translate(-50%, -120%);
 
 }
 
+
 /* ==========================
-   MOBILE MENU
+   DESKTOP NAVIGATION
 ========================== */
+
+/* Hide menu button on PC/Laptop */
 
 .menu-btn{
 
     display:none;
 
-    background:transparent;
-
-    border:none;
-
-    padding:0;
-
-    margin:0;
-
-    width:42px;
-    height:42px;
-
-    font-size:24px;
-
-    color:#d63384;
-
-    cursor:pointer;
-
-    border-radius:50%;
-
-    box-shadow:none;
-
 }
 
 
-/* ==========================
-   NAV LINKS
-========================== */
+/* Normal navigation on PC/Laptop */
 
 .nav-links{
 
@@ -969,12 +948,14 @@ font-weight:600;
 
         display:flex;
 
-        justify-content:flex-end;
+        justify-content:flex-start;
 
         align-items:center;
 
     }
 
+
+    /* MENU BUTTON - MOBILE ONLY */
 
     .menu-btn{
 
@@ -986,7 +967,7 @@ font-weight:600;
 
         position:absolute;
 
-        right:20px;
+        left:20px;
 
         top:14px;
 
@@ -1024,15 +1005,17 @@ font-weight:600;
     }
 
 
+    /* HIDE NAV LINKS */
+
     .nav-links{
 
         position:absolute;
 
         top:65px;
 
-        right:20px;
+        left:20px;
 
-        left:auto;
+        right:auto;
 
         transform:none;
 
@@ -1058,6 +1041,8 @@ font-weight:600;
 
     }
 
+
+    /* SHOW NAV LINKS AFTER CLICKING MENU */
 
     .nav-links.show{
 
@@ -1169,6 +1154,304 @@ font-weight:600;
 
         margin-right:auto;
 
+    }
+
+}
+
+/* ==========================
+   LOCATION - MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+    .location {
+        width: 94%;
+        margin: 50px auto;
+        padding: 50px 15px;
+        text-align: center;
+    }
+
+    .location h1 {
+        text-align: center;
+    }
+
+    .location > p {
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .location-card {
+        width: 100%;
+        max-width: 500px;
+        margin: 35px auto;
+        padding: 35px 20px;
+        text-align: center;
+    }
+
+    .location-card h2 {
+        text-align: center;
+    }
+
+    .location-card p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .location-card a {
+        display: block;
+        width: fit-content;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .location-card hr {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+}
+
+/* ==========================
+   GIFTS FOR YOONAH
+========================== */
+
+.gifts{
+
+    width:90%;
+    max-width:1200px;
+
+    margin:80px auto;
+
+    padding:80px 50px;
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:30px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+    text-align:center;
+
+}
+
+.gifts > p{
+
+    max-width:700px;
+
+    margin:20px auto;
+
+    line-height:1.8;
+
+}
+
+.gift-grid{
+
+    max-width:1000px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+
+    gap:20px;
+
+}
+
+.gift-card{
+
+    background:rgba(255,255,255,.85);
+
+    padding:30px 20px;
+
+    border-radius:22px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+    transition:.3s ease;
+
+}
+
+.gift-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(214,51,132,.18);
+
+}
+
+.gift-icon{
+
+    font-size:40px;
+
+    margin-bottom:15px;
+
+}
+
+.gift-card h2{
+
+    font-size:24px;
+
+    color:#d63384;
+
+}
+
+.gift-card p{
+
+    font-size:16px;
+
+    line-height:1.6;
+
+    margin-top:10px;
+
+}
+
+@media(max-width:768px){
+
+    .gifts{
+
+        width:94%;
+
+        margin:50px auto;
+
+        padding:50px 15px;
+
+    }
+
+    .gifts h1{
+
+        font-size:52px;
+
+        text-align:center;
+
+    }
+
+    .gifts > p{
+
+        text-align:center;
+
+    }
+
+    .gift-grid{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+    }
+
+    .gift-card{
+
+        width:100%;
+
+    }
+
+}
+
+.monetary-gift .gift-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.monetary-gift .gift-icon img{
+    width:200px;
+    height:200px;
+    object-fit:contain;
+    background:white;
+    padding:8px;
+    border-radius:10px;
+}
+
+@media(max-width:768px){
+
+    .monetary-gift .gift-icon img{
+        width:220px;
+        height:220px;
+    }
+
+}
+
+/* ==========================
+   GIFTS - MOBILE CENTERING
+========================== */
+
+@media (max-width: 768px) {
+
+    .gifts {
+        width: 94%;
+        margin: 50px auto;
+        padding: 50px 15px;
+        text-align: center;
+    }
+
+    .gifts h1 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .gifts > p {
+        text-align: center;
+        max-width: 600px;
+        margin: 20px auto;
+        line-height: 1.7;
+    }
+
+    .gift-grid {
+        width: 100%;
+        max-width: 500px;
+        margin: 35px auto 0;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+
+        justify-items: center;
+    }
+
+    .gift-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .gift-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .gift-card h2 {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gift-card p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Monetary gift QR */
+    .monetary-gift .gift-icon {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .monetary-gift .gift-icon img {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+        display: block;
     }
 
 }

@@ -197,6 +197,7 @@ window.addEventListener("scroll",()=>{
 
 
 });
+
 // ==========================
 // MOBILE MENU
 // ==========================
@@ -204,23 +205,23 @@ window.addEventListener("scroll",()=>{
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-if(menuBtn && navLinks){
+if (menuBtn && navLinks) {
 
-    // Open / close menu
-    menuBtn.addEventListener("click", () => {
+    menuBtn.addEventListener("click", function () {
 
         navLinks.classList.toggle("show");
 
     });
 
 
-    // Close menu and go directly to section
+    // Click a navigation link
     const navItems = navLinks.querySelectorAll("a");
 
-    navItems.forEach(link => {
+    navItems.forEach(function (link) {
 
-        link.addEventListener("click", () => {
+        link.addEventListener("click", function () {
 
+            // Close the menu
             navLinks.classList.remove("show");
 
         });

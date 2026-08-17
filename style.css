@@ -806,94 +806,6 @@ transition:1s ease;
 
 }
 
-.navbar{
-
-position:fixed;
-
-top:20px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-background:rgba(255,255,255,.85);
-
-backdrop-filter:blur(15px);
-
-padding:15px 30px;
-
-border-radius:50px;
-
-display:flex;
-
-gap:25px;
-
-z-index:20000;
-
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-opacity:0;
-
-pointer-events:none;
-
-transition:1s ease;
-
-}
-
-
-.navbar.show{
-
-opacity:1;
-
-pointer-events:auto;
-
-}
-
-
-.navbar a{
-
-text-decoration:none;
-
-color:#d63384;
-
-font-weight:600;
-
-}
-
-.opening-card{
-    position:relative;
-    z-index:10001;
-}
-
-
-#openInvitation{
-    position:relative;
-    z-index:10002;
-    pointer-events:auto;
-}
-
-/* ==========================
-   SCROLL ANIMATION
-========================== */
-
-.reveal{
-
-    opacity:0;
-
-    transform:translateY(60px);
-
-    transition:1s ease;
-
-}
-
-
-.reveal.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
 
 /* ==========================
    RSVP BUTTON
@@ -1292,17 +1204,109 @@ font-weight:600;
 
 }
 
-html {
-    scroll-behavior: smooth;
+/* ==========================
+   NAVBAR - DESKTOP
+========================== */
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    padding: 15px 30px;
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+
+    border-radius: 50px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    z-index: 10000;
+
+    /* HIDDEN BEFORE OPENING */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* MOBILE MENU BUTTON */
+
+/* SHOW AFTER OPEN INVITATION */
+
+.navbar.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #d63384;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6aa2;
+}
+
+
+/* HAMBURGER HIDDEN ON PC */
 
 .menu-btn {
     display: none;
 }
 
+
+/* ==========================
+   MOBILE NAVBAR
+========================== */
+
 @media (max-width: 768px) {
+
+    /* REMOVE THE BIG OVAL */
+    .navbar {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 0;
+        height: 0;
+
+        padding: 0;
+        margin: 0;
+
+        background: transparent;
+        backdrop-filter: none;
+
+        border: none;
+        border-radius: 0;
+
+        box-shadow: none;
+
+        transform: none;
+
+        z-index: 10000;
+    }
+
+
+    /* ==========================
+       CIRCLE MENU BUTTON
+    ========================== */
 
     .menu-btn {
         display: flex;
@@ -1312,8 +1316,8 @@ html {
         top: 15px;
         left: 15px;
 
-        width: 44px;
-        height: 44px;
+        width: 46px;
+        height: 46px;
 
         padding: 0;
         margin: 0;
@@ -1321,28 +1325,111 @@ html {
         justify-content: center;
         align-items: center;
 
-        background: rgba(255,255,255,.92);
+        background: rgba(255, 255, 255, 0.95);
 
         color: #d63384;
 
-        border: 1px solid rgba(214,51,132,.2);
+        border: 2px solid rgba(214, 51, 132, 0.2);
 
         border-radius: 50%;
 
-        box-shadow: 0 5px 15px rgba(0,0,0,.15);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 
-        font-size: 23px;
-
+        font-size: 24px;
         line-height: 1;
 
         cursor: pointer;
 
-        z-index: 30001;
+        z-index: 10002;
+
+        -webkit-appearance: none;
+        appearance: none;
     }
 
-    .menu-btn:hover {
+
+    .menu-btn:hover,
+    .menu-btn:active {
         transform: none;
-        box-shadow: 0 5px 15px rgba(0,0,0,.15);
     }
 
+
+    /* ==========================
+       HIDDEN NAVIGATION
+    ========================== */
+
+    .nav-links {
+        display: none;
+    }
+
+
+    /* ==========================
+       OPEN NAVIGATION
+    ========================== */
+
+    .nav-links.show {
+
+        display: flex;
+
+        position: fixed;
+
+        top: 70px;
+        left: 15px;
+
+        width: 220px;
+
+        padding: 15px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 3px;
+
+        background: rgba(255, 255, 255, 0.96);
+
+        backdrop-filter: blur(15px);
+
+        border-radius: 20px;
+
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+
+        z-index: 10001;
+    }
+
+
+    .nav-links a {
+
+        display: block;
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+        padding: 12px 15px;
+
+        color: #d63384;
+
+        text-align: left;
+
+        text-decoration: none;
+
+        border-radius: 12px;
+    }
+
+
+    .nav-links a:hover,
+    .nav-links a:active {
+
+        background: rgba(255, 106, 162, 0.12);
+
+    }
+
+}
+
+
+/* ==========================
+   SMOOTH NAVIGATION
+========================== */
+
+html {
+    scroll-behavior: smooth;
 }

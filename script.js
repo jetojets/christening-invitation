@@ -197,23 +197,37 @@ window.addEventListener("scroll",()=>{
 
 
 });
-
+// ==========================
 // MOBILE MENU
+// ==========================
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
+if(menuBtn && navLinks){
 
-if(menuBtn){
-
-    menuBtn.addEventListener("click",()=>{
+    // Open / close menu
+    menuBtn.addEventListener("click", () => {
 
         navLinks.classList.toggle("show");
 
     });
 
-}
 
+    // Close menu and go directly to section
+    const navItems = navLinks.querySelectorAll("a");
+
+    navItems.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("show");
+
+        });
+
+    });
+
+}
 
 /// RSVP EMAIL
 
